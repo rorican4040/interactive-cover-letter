@@ -1,278 +1,284 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Candidate Profile: Threat Detection & Response Engineer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Professional Tech Blue -->
-    <!-- Application Structure Plan: The SPA is designed as an interactive "Candidate Profile Dashboard" to dynamically showcase qualifications for the TDR Engineer role. Instead of a linear letter, it uses thematic sections (Overview, Competencies, Skills, Impact) with a top navigation for easy exploration. The core interaction is a tabbed view for "Core Competencies" (Hunting, Detection, IR), allowing a hiring manager to quickly dive into specific areas of expertise. This structure was chosen to make the candidate's value proposition more engaging, digestible, and directly mapped to the job description's key responsibilities, improving usability over a static document. -->
-    <!-- Visualization & Content Choices: - **Years of Experience (Stat)** -> Goal: Inform -> Presentation: Dynamic Card -> Interaction: Subtle animation on load -> Justification: Highlights key qualifications immediately. -> Library: HTML/CSS. - **Core Competencies (Text)** -> Goal: Organize -> Presentation: Tabbed Interface -> Interaction: Click tabs to reveal content -> Justification: Breaks down a large text block into focused, user-driven sections. -> Library: Vanilla JS. - **Technical Skills (List)** -> Goal: Compare -> Presentation: Horizontal Bar Chart -> Interaction: Hover for tooltips -> Justification: Visually represents proficiency in key technologies mentioned in the job description (Python, AWS, SQL), making it more impactful than a simple list. -> Library: Chart.js (Canvas). - **Collaboration Flow (Concept)** -> Goal: Relationships -> Presentation: HTML/CSS Diagram -> Interaction: Static visual -> Justification: Clearly illustrates the candidate's process for working with cross-functional teams to solve problems, a key requirement. -> Library: Tailwind CSS. - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-        }
-        .tab-active {
-            border-color: #3b82f6;
-            color: #3b82f6;
-            background-color: #eff6ff;
-        }
-        .tab-inactive {
-            border-color: transparent;
-            color: #64748b;
-        }
-        .content-active {
-            display: block;
-        }
-        .content-inactive {
-            display: none;
-        }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 300px;
-            max-height: 400px;
-        }
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 350px;
-            }
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Profile: Threat Detection & Response Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Professional Tech Blue -->
+    <!-- Application Structure Plan: The SPA is designed as an interactive "Candidate Profile Dashboard" to dynamically showcase qualifications for the TDR Engineer role. Instead of a linear letter, it uses thematic sections (Overview, Competencies, Skills, Impact) with a top navigation for easy exploration. The core interaction is a tabbed view for "Core Competencies" (Hunting, Detection, IR), allowing a hiring manager to quickly dive into specific areas of expertise. This structure was chosen to make the candidate's value proposition more engaging, digestible, and directly mapped to the job description's key responsibilities, improving usability over a static document. -->
+    <!-- Visualization & Content Choices: - **Years of Experience (Stat)** -> Goal: Inform -> Presentation: Dynamic Card -> Interaction: Subtle animation on load -> Justification: Highlights key qualifications immediately. -> Library: HTML/CSS. - **Core Competencies (Text)** -> Goal: Organize -> Presentation: Tabbed Interface -> Interaction: Click tabs to reveal content -> Justification: Breaks down a large text block into focused, user-driven sections. -> Library: Vanilla JS. - **Technical Skills (List)** -> Goal: Compare -> Presentation: Horizontal Bar Chart -> Interaction: Hover for tooltips -> Justification: Visually represents proficiency in key technologies mentioned in the job description (Python, AWS, SQL), making it more impactful than a simple list. -> Library: Chart.js (Canvas). - **Collaboration Flow (Concept)** -> Goal: Relationships -> Presentation: HTML/CSS Diagram -> Interaction: Static visual -> Justification: Clearly illustrates the candidate's process for working with cross-functional teams to solve problems, a key requirement. -> Library: Tailwind CSS. - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .tab-active {
+            border-color: #3b82f6;
+            color: #3b82f6;
+            background-color: #eff6ff;
+        }
+        .tab-inactive {
+            border-color: transparent;
+            color: #64748b;
+        }
+        .content-active {
+            display: block;
+        }
+        .content-inactive {
+            display: none;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
 </head>
 <body class="text-slate-700">
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center">
-                    <span class="font-bold text-xl text-slate-800">Robert O. Rodriguez</span>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#overview" class="text-slate-600 hover:bg-slate-100 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium">Overview</a>
-                        <a href="#competencies" class="text-slate-600 hover:bg-slate-100 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium">Core Competencies</a>
-                        <a href="#skills" class="text-slate-600 hover:bg-slate-100 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium">Technical Skills</a>
-                        <a href="#impact" class="text-slate-600 hover:bg-slate-100 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium">Impact & Collaboration</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="font-bold text-xl text-slate-800">Robert O. Rodriguez</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#overview" class="text-slate-600 hover:bg-slate-100 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium">Overview</a>
+                        <a href="#competencies" class="text-slate-600 hover:bg-slate-100 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium">Core Competencies</a>
+                        <a href="#skills" class="text-slate-600 hover:bg-slate-100 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium">Technical Skills</a>
+                        <a href="#impact" class="text-slate-600 hover:bg-slate-100 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium">Impact & Collaboration</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <section id="overview" class="mb-20 text-center">
-            <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">Threat Detection & Response Engineer</h1>
-            <p class="mt-6 text-lg leading-8 text-slate-600 max-w-3xl mx-auto">
-                Enthusiastic and proactive security professional with extensive experience in incident response, threat hunting, and detection engineering, seeking to contribute to Airbnb's mission of building a secure and trusted community.
-            </p>
-            <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md border border-slate-200">
-                    <h3 class="text-3xl font-semibold text-blue-600">5+</h3>
-                    <p class="mt-2 text-slate-500">Years of Experience</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md border border-slate-200">
-                    <h3 class="text-3xl font-semibold text-blue-600">3</h3>
-                    <p class="mt-2 text-slate-500">Core Security Pillars</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md border border-slate-200">
-                    <h3 class="text-3xl font-semibold text-blue-600">Proactive</h3>
-                    <p class="mt-2 text-slate-500">Defense Philosophy</p>
-                </div>
-            </div>
-        </section>
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <section id="overview" class="mb-20 text-center">
+            <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">Threat Detection & Response Engineer</h1>
+            <p class="mt-6 text-lg leading-8 text-slate-600 max-w-3xl mx-auto">
+                Enthusiastic and proactive security professional with extensive experience in incident response, threat hunting, and detection engineering, seeking to contribute to Airbnb's mission of building a secure and trusted community.
+            </p>
+            <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md border border-slate-200">
+                    <h3 class="text-3xl font-semibold text-blue-600">5+</h3>
+                    <p class="mt-2 text-slate-500">Years of Experience</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md border border-slate-200">
+                    <h3 class="text-3xl font-semibold text-blue-600">3</h3>
+                    <p class="mt-2 text-slate-500">Core Security Pillars</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md border border-slate-200">
+                    <h3 class="text-3xl font-semibold text-blue-600">Proactive</h3>
+                    <p class="mt-2 text-slate-500">Defense Philosophy</p>
+                </div>
+            </div>
+        </section>
 
-        <section id="competencies" class="mb-20">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Core Competencies</h2>
-                <p class="mt-4 text-lg text-slate-600">A versatile defender with expertise across the full spectrum of threat detection and response.</p>
-            </div>
-            <div class="bg-white rounded-xl shadow-lg p-4 sm:p-8 border border-slate-200">
-                <div class="mb-6 border-b border-slate-200">
-                    <nav class="-mb-px flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4" aria-label="Tabs">
-                        <button class="tab-btn tab-active" data-tab="hunting">Threat Hunting</button>
-                        <button class="tab-btn tab-inactive" data-tab="detection">Detection Engineering</button>
-                        <button class="tab-btn tab-inactive" data-tab="response">Incident Response</button>
-                    </nav>
-                </div>
-                <div>
-                    <div id="hunting" class="tab-content content-active">
-                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Proactive Threat Hunting</h3>
-                        <p class="text-slate-600">
-                            As a key member of the security team, I was responsible for protecting both corporate and production environments. My expertise in threat hunting allowed me to proactively identify and neutralize anomalous activity, often leading to the discovery of new and evolving threats. I have a deep understanding of hunting methodologies to proactively identify gaps in infrastructure and work with business partners to gain visibility through improved logging and detection.
-                        </p>
-                    </div>
-                    <div id="detection" class="tab-content content-inactive">
-                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Advanced Detection Engineering</h3>
-                        <p class="text-slate-600">
-                            A core part of my work has been the development of novel detection and response capabilities. I have built and deployed automated detection models using Python, SQL, and various data analysis techniques to identify and mitigate threats at scale. My experience in AWS services, including EC2, S3, and Lambda, has been instrumental in building these scalable solutions. I am particularly skilled at operationalizing intelligence and applying frameworks like the Cyber Kill Chain and MITRE ATT&CK to understand and proactively defend against the threat landscape.
-                        </p>
-                    </div>
-                    <div id="response" class="tab-content content-inactive">
-                        <h3 class="text-xl font-semibold text-slate-800 mb-2">In-Depth Incident Response</h3>
-                        <p class="text-slate-600">
-                            I consistently apply my in-depth knowledge of digital forensics and data analytics to perform complex investigations of security incidents. I am accustomed to working calmly and collaboratively in critical high-stress situations, a quality that is crucial for effective incident management and leading complex investigations through influence rather than authority.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section id="competencies" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Core Competencies</h2>
+                <p class="mt-4 text-lg text-slate-600">A versatile defender with expertise across the full spectrum of threat detection and response.</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg p-4 sm:p-8 border border-slate-200">
+                <div class="mb-6 border-b border-slate-200">
+                    <nav class="-mb-px flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4" aria-label="Tabs">
+                        <button class="tab-btn tab-active" data-tab="hunting">Threat Hunting</button>
+                        <button class="tab-btn tab-inactive" data-tab="detection">Detection Engineering</button>
+                        <button class="tab-btn tab-inactive" data-tab="response">Incident Response</button>
+                    </nav>
+                </div>
+                <div>
+                    <div id="hunting" class="tab-content content-active">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Proactive Threat Hunting</h3>
+                        <p class="text-slate-600">
+                            As a key member of the security team, I was responsible for protecting both corporate and production environments. My expertise in threat hunting allowed me to proactively identify and neutralize anomalous activity, often leading to the discovery of new and evolving threats. I have a deep understanding of hunting methodologies to proactively identify gaps in infrastructure and work with business partners to gain visibility through improved logging and detection.
+                        </p>
+                    </div>
+                    <div id="detection" class="tab-content content-inactive">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Advanced Detection Engineering</h3>
+                        <p class="text-slate-600">
+                            A core part of my work has been the development of novel detection and response capabilities. I have built and deployed automated detection models using Python, SQL, and various data analysis techniques to identify and mitigate threats at scale. My experience in AWS services, including EC2, S3, and Lambda, has been instrumental in building these scalable solutions. I am particularly skilled at operationalizing intelligence and applying frameworks like the Cyber Kill Chain and MITRE ATT&CK to understand and proactively defend against the threat landscape.
+                        </p>
+                    </div>
+                    <div id="response" class="tab-content content-inactive">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">In-Depth Incident Response</h3>
+                        <p class="text-slate-600">
+                            I consistently apply my in-depth knowledge of digital forensics and data analytics to perform complex investigations of security incidents. I am accustomed to working calmly and collaboratively in critical high-stress situations, a quality that is crucial for effective incident management and leading complex investigations through influence rather than authority.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <section id="skills" class="mb-20">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Technical Skills & Frameworks</h2>
-                <p class="mt-4 text-lg text-slate-600">Expertise in modern tools and methodologies for comprehensive security.</p>
-            </div>
-             <div class="bg-white rounded-xl shadow-lg p-4 sm:p-8 border border-slate-200">
-                <div class="chart-container">
-                    <canvas id="skillsChart"></canvas>
-                </div>
-            </div>
-        </section>
+        <section id="skills" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Technical Skills & Frameworks</h2>
+                <p class="mt-4 text-lg text-slate-600">Expertise in modern tools and methodologies for comprehensive security.</p>
+            </div>
+             <div class="bg-white rounded-xl shadow-lg p-4 sm:p-8 border border-slate-200">
+                <div class="chart-container">
+                    <canvas id="skillsChart"></canvas>
+                </div>
+            </div>
+        </section>
 
-        <section id="impact" class="mb-12">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Impact & Collaboration</h2>
-                <p class="mt-4 text-lg text-slate-600">Driving security improvements through partnership and root cause analysis.</p>
-            </div>
-            <div class="bg-white rounded-xl shadow-lg p-8 border border-slate-200">
-                <p class="text-center text-slate-600 mb-8">My experience includes partnering with legal, privacy, and engineering teams to ensure efficient, large-scale responses and conducting root cause analysis to eliminate entire classes of problems. I thrive in dynamic environments and have a proven ability to lead complex investigations by influencing cross-functional partners rather than relying on authority.</p>
-                <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
-                    <div class="p-4 bg-slate-50 rounded-lg text-center">
-                        <span class="text-2xl">🔎</span>
-                        <p class="font-semibold">Investigation & RCA</p>
-                    </div>
-                    <div class="text-blue-500 font-bold text-2xl transform md:rotate-0 rotate-90">&rarr;</div>
-                     <div class="p-4 bg-slate-50 rounded-lg text-center">
-                        <span class="text-2xl">🤝</span>
-                        <p class="font-semibold">Cross-Functional Partnership</p>
-                    </div>
-                    <div class="text-blue-500 font-bold text-2xl transform md:rotate-0 rotate-90">&rarr;</div>
-                     <div class="p-4 bg-slate-50 rounded-lg text-center">
-                        <span class="text-2xl">🛡️</span>
-                        <p class="font-semibold">Systemic Problem Removal</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+        <section id="impact" class="mb-12">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Impact & Collaboration</h2>
+                <p class="mt-4 text-lg text-slate-600">Driving security improvements through partnership and root cause analysis.</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg p-8 border border-slate-200">
+                <p class="text-center text-slate-600 mb-8">My experience includes partnering with legal, privacy, and engineering teams to ensure efficient, large-scale responses and conducting root cause analysis to eliminate entire classes of problems. I thrive in dynamic environments and have a proven ability to lead complex investigations by influencing cross-functional partners rather than relying on authority.</p>
+                <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
+                    <div class="p-4 bg-slate-50 rounded-lg text-center">
+                        <span class="text-2xl">🔎</span>
+                        <p class="font-semibold">Investigation & RCA</p>
+                    </div>
+                    <div class="text-blue-500 font-bold text-2xl transform md:rotate-0 rotate-90">&rarr;</div>
+                     <div class="p-4 bg-slate-50 rounded-lg text-center">
+                        <span class="text-2xl">🤝</span>
+                        <p class="font-semibold">Cross-Functional Partnership</p>
+                    </div>
+                    <div class="text-blue-500 font-bold text-2xl transform md:rotate-0 rotate-90">&rarr;</div>
+                     <div class="p-4 bg-slate-50 rounded-lg text-center">
+                        <span class="text-2xl">🛡️</span>
+                        <p class="font-semibold">Systemic Problem Removal</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <footer class="bg-slate-800 text-white">
-        <div class="max-w-6xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center">
-            <p class="font-semibold text-lg">Thank you for your time and consideration.</p>
-            <p class="mt-2 text-slate-300">I look forward to discussing how I can contribute to the Airbnb team.</p>
-            <div class="mt-4 flex justify-center space-x-6">
-                <a href="mailto:robertrodriguez220@gmail.com" class="text-slate-300 hover:text-blue-400">robertrodriguez220@gmail.com</a>
-                <span>&bull;</span>
-                <a href="#" class="text-slate-300 hover:text-blue-400">https://www.linkedin.com/in/robert-o-rodriguez/</a>
-            </div>
+    <footer class="bg-slate-800 text-white">
+        <div class="max-w-6xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center">
+            <p class="font-semibold text-lg">Thank you for your time and consideration.</p>
+            <p class="mt-2 text-slate-300">I look forward to discussing how I can contribute to the Airbnb team.</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="mailto:robertrodriguez220@gmail.com" class="text-slate-300 hover:text-blue-400">robertrodriguez220@gmail.com</a>
+                <span>&bull;</span>
+                <a href="#" class="text-slate-300 hover:text-blue-400">https://www.linkedin.com/in/robert-o-rodriguez/</a>
+            </div>
             <img src="http://canarytokens.com/static/traffic/articles/x6hd0oncqm2k0joog1sizuu56/index.html" style="width:1px; height:1px; opacity:0;"/>
-        </div>
-    </footer>
+        </div>
+    </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const tabs = document.querySelectorAll('.tab-btn');
-            const contents = document.querySelectorAll('.tab-content');
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const contents = document.querySelectorAll('.tab-content');
 
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function () {
-                    tabs.forEach(item => {
-                        item.classList.remove('tab-active');
-                        item.classList.add('tab-inactive');
-                    });
-                    this.classList.remove('tab-inactive');
-                    this.classList.add('tab-active');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function () {
+                    tabs.forEach(item => {
+                        item.classList.remove('tab-active');
+                        item.classList.add('tab-inactive');
+                    });
+                    this.classList.remove('tab-inactive');
+                    this.classList.add('tab-active');
 
-                    const target = this.dataset.tab;
-                    contents.forEach(content => {
-                        content.classList.remove('content-active');
-                        content.classList.add('content-inactive');
-                        if (content.id === target) {
-                            content.classList.remove('content-inactive');
-                            content.classList.add('content-active');
-                        }
-                    });
-                });
-            });
-            
-            tabs.forEach(tab => {
-              tab.classList.add('px-4', 'py-2', 'font-medium', 'text-sm', 'rounded-t-lg', 'border-b-2', 'transition-colors', 'duration-200', 'ease-in-out', 'focus:outline-none');
-            });
+                    const target = this.dataset.tab;
+                    contents.forEach(content => {
+                        content.classList.remove('content-active');
+                        content.classList.add('content-inactive');
+                        if (content.id === target) {
+                            content.classList.remove('content-inactive');
+                            content.classList.add('content-active');
+                        }
+                    });
+                });
+            });
+            
+            tabs.forEach(tab => {
+                tab.classList.add('px-4', 'py-2', 'font-medium', 'text-sm', 'rounded-t-lg', 'border-b-2', 'transition-colors', 'duration-200', 'ease-in-out', 'focus:outline-none');
+            });
 
-            const skillsData = {
-                labels: ['Python', 'SQL', 'AWS Services', 'MITRE ATT&CK', 'Digital Forensics', 'Threat Intelligence', 'Automation'],
-                datasets: [{
-                    label: 'Proficiency',
-                    data: [15, 25, 25, 85, 80, 90, 25],
-                    backgroundColor: 'rgba(59, 130, 246, 0.5)',
-                    borderColor: 'rgba(59, 130, 246, 1)',
-                    borderWidth: 1
-                }]
-            };
+            const skillsData = {
+                labels: ['Python', 'SQL', 'AWS Services', 'MITRE ATT&CK', 'Digital Forensics', 'Threat Intelligence', 'Automation'],
+                datasets: [{
+                    label: 'Proficiency',
+                    data: [15, 25, 25, 85, 80, 90, 25],
+                    backgroundColor: 'rgba(59, 130, 246, 0.5)',
+                    borderColor: 'rgba(59, 130, 246, 1)',
+                    borderWidth: 1
+                }]
+            };
 
-            const skillsConfig = {
-                type: 'bar',
-                data: skillsData,
-                options: {
-                    indexAxis: 'y',
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    let label = context.dataset.label || '';
-                                    if (label) {
-                                        label += ': ';
-                                    }
-                                    if (context.parsed.x !== null) {
-                                        let proficiency = '';
-                                        if(context.parsed.x > 90) proficiency = 'Expert';
-                                        else if (context.parsed.x > 75) proficiency = 'Advanced';
-                                        else proficiency = 'Proficient';
-                                        label += proficiency;
-                                    }
-                                    return label;
-                                }
-                            }
-                        }
-                    },
-                    scales: {
-                        x: {
-                            beginAtZero: true,
-                            max: 100,
-                            ticks: {
-                                callback: function(value) {
-                                    return value + '%'
-                                }
-                            }
-                        },
-                        y: {
-                           ticks: {
-                                autoSkip: false,
-                                maxRotation: 0,
-                                minRotation: 0
-                           }
-                        }
-                    }
-                }
-            };
-            
-            const skillsChartCtx = document.getElementById('skillsChart').getContext('2d');
-            new Chart(skillsChartCtx, skillsConfig);
-        });
-    </script>
+            const skillsConfig = {
+                type: 'bar',
+                data: skillsData,
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.x !== null) {
+                                        let proficiency = '';
+                                        if(context.parsed.x > 90) proficiency = 'Expert';
+                                        else if (context.parsed.x > 75) proficiency = 'Advanced';
+                                        else proficiency = 'Proficient';
+                                        label += proficiency;
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%'
+                                }
+                            }
+                        },
+                        y: {
+                           ticks: {
+                                autoSkip: false,
+                                maxRotation: 0,
+                                minRotation: 0
+                           }
+                        }
+                    }
+                }
+            };
+            
+            // Fix: Add a check to ensure the canvas element exists before creating the chart
+            const skillsChartCanvas = document.getElementById('skillsChart');
+            if (skillsChartCanvas) {
+                const skillsChartCtx = skillsChartCanvas.getContext('2d');
+                new Chart(skillsChartCtx, skillsConfig);
+            } else {
+                console.error("Could not find canvas element with ID 'skillsChart'.");
+            }
+        });
+    </script>
 </body>
 </html>
