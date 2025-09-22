@@ -3,29 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Candidate Profile: Threat Detection & Response Engineer</title>
+    <title>Robert O. Rodriguez - Threat Detection & Response Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Professional Tech Blue -->
-    <!-- Application Structure Plan: The SPA is designed as an interactive "Candidate Profile Dashboard" to dynamically showcase qualifications for the TDR Engineer role. Instead of a linear letter, it uses thematic sections (Overview, Competencies, Skills, Impact) with a top navigation for easy exploration. The core interaction is a tabbed view for "Core Competencies" (Hunting, Detection, IR), allowing a hiring manager to quickly dive into specific areas of expertise. This structure was chosen to make the candidate's value proposition more engaging, digestible, and directly mapped to the job description's key responsibilities, improving usability over a static document. -->
-    <!-- Visualization & Content Choices: - **Years of Experience (Stat)** -> Goal: Inform -> Presentation: Dynamic Card -> Interaction: Subtle animation on load -> Justification: Highlights key qualifications immediately. -> Library: HTML/CSS. - **Core Competencies (Text)** -> Goal: Organize -> Presentation: Tabbed Interface -> Interaction: Click tabs to reveal content -> Justification: Breaks down a large text block into focused, user-driven sections. -> Library: Vanilla JS. - **Technical Skills (List)** -> Goal: Compare -> Presentation: Horizontal Bar Chart -> Interaction: Hover for tooltips -> Justification: Visually represents proficiency in key technologies mentioned in the job description (Python, AWS, SQL), making it more impactful than a simple list. -> Library: Chart.js (Canvas). - **Collaboration Flow (Concept)** -> Goal: Relationships -> Presentation: HTML/CSS Diagram -> Interaction: Static visual -> Justification: Clearly illustrates the candidate's process for working with cross-functional teams to solve problems, a key requirement. -> Library: Tailwind CSS. - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <!-- Updated Palette: Dark Professional Slate -->
+    <!-- Application Structure Plan: The SPA is redesigned as an interactive resume, focusing on a clear, professional layout. It features a top section with contact info, followed by distinct, scrollable sections for Summary, Professional Experience, Education, Technical Skills, and Strengths. The tabbed interface is used to switch between different roles, making the content digestible. The design is a significant evolution from the previous version, aligning more closely with a standard resume format while retaining the interactive elements. -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
+            background-color: #1a202c; /* A deep charcoal gray */
+            color: #e2e8f0; /* A light slate gray for text */
         }
         .tab-active {
             border-color: #3b82f6;
             color: #3b82f6;
-            background-color: #eff6ff;
+            background-color: #2c313a; /* Darker background for active tab */
         }
         .tab-inactive {
             border-color: transparent;
-            color: #64748b;
+            color: #cbd5e1;
         }
         .content-active {
             display: block;
@@ -33,35 +31,21 @@
         .content-inactive {
             display: none;
         }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 300px;
-            max-height: 400px;
-        }
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 350px;
-            }
-        }
     </style>
 </head>
-<body class="text-slate-700">
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
+<body class="text-slate-300">
+    <nav class="sticky top-0 z-50 bg-[#1a202c]/80 backdrop-blur-md shadow-lg">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
-                    <span class="font-bold text-xl text-slate-800">Robert O. Rodriguez</span>
+                    <span class="font-bold text-xl text-blue-400">Robert O. Rodriguez</span>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#overview" class="text-slate-600 hover:bg-slate-100 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium">Overview</a>
-                        <a href="#competencies" class="text-slate-600 hover:bg-slate-100 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium">Core Competencies</a>
-                        <a href="#skills" class="text-slate-600 hover:bg-slate-100 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium">Technical Skills</a>
-                        <a href="#impact" class="text-slate-600 hover:bg-slate-100 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium">Impact & Collaboration</a>
+                        <a href="#summary" class="text-slate-300 hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Summary</a>
+                        <a href="#experience" class="text-slate-300 hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Experience</a>
+                        <a href="#skills" class="text-slate-300 hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                        <a href="#strengths" class="text-slate-300 hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Strengths</a>
                     </div>
                 </div>
             </div>
@@ -69,124 +53,118 @@
     </nav>
 
     <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <section id="overview" class="mb-20 text-center">
-            <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">Threat Detection & Response Engineer</h1>
-            <p class="mt-6 text-lg leading-8 text-slate-600 max-w-3xl mx-auto">
-                Enthusiastic and proactive security professional with extensive experience in incident response, threat hunting, and detection engineering, seeking to contribute to Airbnb's mission of building a secure and trusted community.
-            </p>
-            <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md border border-slate-200">
-                    <h3 class="text-3xl font-semibold text-blue-600">5+</h3>
-                    <p class="mt-2 text-slate-500">Years of Experience</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md border border-slate-200">
-                    <h3 class="text-3xl font-semibold text-blue-600">3</h3>
-                    <p class="mt-2 text-slate-500">Core Security Pillars</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md border border-slate-200">
-                    <h3 class="text-3xl font-semibold text-blue-600">Proactive</h3>
-                    <p class="mt-2 text-slate-500">Defense Philosophy</p>
-                </div>
+        <header class="mb-12 text-center text-slate-200">
+            <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">Robert O. Rodriguez</h1>
+            <p class="mt-2 text-lg leading-8 text-blue-400">Threat Detection & Response Engineer</p>
+            <div class="mt-4 flex flex-col sm:flex-row justify-center space-y-1 sm:space-y-0 sm:space-x-6 text-sm text-slate-400">
+                <span>Columbus, OH</span>
+                <span>•</span>
+                <a href="#" class="hover:underline">LinkedIn</a>
+                <span>•</span>
+                <span>614.717.5098</span>
+                <span>•</span>
+                <a href="mailto:robertrodriguez220@gmail.com" class="hover:underline">robertrodriguez220@gmail.com</a>
+            </div>
+        </header>
+
+        <section id="summary" class="mb-12">
+            <div class="bg-gray-800 rounded-xl shadow-lg p-6 sm:p-8 border border-gray-700">
+                <h2 class="text-2xl font-bold tracking-tight text-blue-400 mb-4">Summary</h2>
+                <p class="text-slate-300 leading-relaxed">
+                    Detection Engineer with 4+ years designing, deploying, and tuning detection-as-code to defend enterprise networks against advanced threats. Proven track record of building high-fidelity detections mapped to MITRE ATT&CK, automating investigative workflows, and integrating threat intelligence to continuously improve coverage. Expert in KQL, Sigma, YARA, and Python/PowerShell scripting for rapid detection development. Recognized for reducing false positives, cutting investigation times, and aligning detection pipelines with evolving adversary TTPs.
+                </p>
             </div>
         </section>
 
-        <section id="competencies" class="mb-20">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Core Competencies</h2>
-                <p class="mt-4 text-lg text-slate-600">A versatile defender with expertise across the full spectrum of threat detection and response.</p>
+        <section id="experience" class="mb-12">
+            <div class="text-center mb-6">
+                <h2 class="text-3xl font-bold tracking-tight text-blue-400 sm:text-4xl">Professional Experience</h2>
             </div>
-            <div class="bg-white rounded-xl shadow-lg p-4 sm:p-8 border border-slate-200">
-                <div class="mb-6 border-b border-slate-200">
+            <div class="bg-gray-800 rounded-xl shadow-lg p-4 sm:p-8 border border-gray-700">
+                <div class="mb-6 border-b border-gray-700">
                     <nav class="-mb-px flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4" aria-label="Tabs">
-                        <button class="tab-btn tab-active" data-tab="hunting">Threat Hunting</button>
-                        <button class="tab-btn tab-inactive" data-tab="detection">Detection Engineering</button>
-                        <button class="tab-btn tab-inactive" data-tab="response">Incident Response</button>
+                        <button class="tab-btn tab-active" data-tab="sr-specialist">Sr. Security Specialist</button>
+                        <button class="tab-btn tab-inactive" data-tab="specialist">Security Specialist Associate</button>
                     </nav>
                 </div>
                 <div>
-                    <div id="hunting" class="tab-content content-active">
-                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Proactive Threat Hunting</h3>
-                        <p class="text-slate-600">
-                            As a key member of the security team, I was responsible for protecting both corporate and production environments. My expertise in threat hunting allowed me to proactively identify and neutralize anomalous activity, often leading to the discovery of new and evolving threats. I have a deep understanding of hunting methodologies to proactively identify gaps in infrastructure and work with business partners to gain visibility through improved logging and detection.
-                        </p>
+                    <div id="sr-specialist" class="tab-content content-active">
+                        <h3 class="text-xl font-semibold text-slate-200 mb-2">American Electric Power | Sr. Security Specialist (Detection Engineering)</h3>
+                        <p class="text-sm italic text-slate-400 mb-4">Jul 2021 – Present</p>
+                        <ul class="list-disc list-inside space-y-2 text-slate-300">
+                            <li>Designed and deployed high-fidelity behavioral detections in KQL and Sigma, mapped to MITRE ATT&CK, increasing detection coverage of priority TTPs by 35%.</li>
+                            <li>Built automation scripts in Python and PowerShell to enrich alerts and correlate telemetry, reducing manual investigation workload by 40+ hours/month.</li>
+                            <li>Led targeted threat hunts using endpoint, network, and identity telemetry to validate gaps and feed new detection logic into SIEM/EDR platforms.</li>
+                            <li>Developed reusable detection playbooks and Git-based version control workflows, enabling rapid deployment and rollback of rules.</li>
+                            <li>Conducted malware reverse engineering to extract IOCs and behavior patterns for custom countermeasures.</li>
+                            <li>Partnered with Incident Response to tune alerts and reduce false positive rates by 20% while maintaining high detection fidelity.</li>
+                        </ul>
                     </div>
-                    <div id="detection" class="tab-content content-inactive">
-                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Advanced Detection Engineering</h3>
-                        <p class="text-slate-600">
-                            A core part of my work has been the development of novel detection and response capabilities. I have built and deployed automated detection models using Python, SQL, and various data analysis techniques to identify and mitigate threats at scale. My experience in AWS services, including EC2, S3, and Lambda, has been instrumental in building these scalable solutions. I am particularly skilled at operationalizing intelligence and applying frameworks like the Cyber Kill Chain and MITRE ATT&CK to understand and proactively defend against the threat landscape.
-                        </p>
-                    </div>
-                    <div id="response" class="tab-content content-inactive">
-                        <h3 class="text-xl font-semibold text-slate-800 mb-2">In-Depth Incident Response</h3>
-                        <p class="text-slate-600">
-                            I consistently apply my in-depth knowledge of digital forensics and data analytics to perform complex investigations of security incidents. I am accustomed to working calmly and collaboratively in critical high-stress situations, a quality that is crucial for effective incident management and leading complex investigations through influence rather than authority.
-                        </p>
+                    <div id="specialist" class="tab-content content-inactive">
+                        <h3 class="text-xl font-semibold text-slate-200 mb-2">American Electric Power | Security Specialist Associate</h3>
+                        <p class="text-sm italic text-slate-400 mb-4">Jul 2019 – Jul 2021</p>
+                        <ul class="list-disc list-inside space-y-2 text-slate-300">
+                            <li>Monitored, triaged, and investigated security alerts in a 24/7 SOC environment, escalating validated threats for rapid containment and remediation.</li>
+                            <li>Performed static malware analysis to support detection logic development and enrich internal threat intelligence.</li>
+                            <li>Built and maintained a searchable SOC knowledge base to standardize triage and escalation for detection-driven alerts.</li>
+                            <li>Participated in on-call rotations ensuring timely response to detection triggers and incidents.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="skills" class="mb-20">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Technical Skills & Frameworks</h2>
-                <p class="mt-4 text-lg text-slate-600">Expertise in modern tools and methodologies for comprehensive security.</p>
-            </div>
-             <div class="bg-white rounded-xl shadow-lg p-4 sm:p-8 border border-slate-200">
-                <div class="chart-container">
-                    <canvas id="skillsChart"></canvas>
-                </div>
+        <section id="education" class="mb-12">
+            <div class="bg-gray-800 rounded-xl shadow-lg p-6 sm:p-8 border border-gray-700">
+                <h2 class="text-2xl font-bold tracking-tight text-blue-400 mb-4">Education</h2>
+                <p class="text-slate-300">Associate of Applied Science, Computer Networking Systems</p>
             </div>
         </section>
 
-        <section id="impact" class="mb-12">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Impact & Collaboration</h2>
-                <p class="mt-4 text-lg text-slate-600">Driving security improvements through partnership and root cause analysis.</p>
+        <section id="skills" class="mb-12">
+            <div class="bg-gray-800 rounded-xl shadow-lg p-6 sm:p-8 border border-gray-700">
+                <h2 class="text-2xl font-bold tracking-tight text-blue-400 mb-4">Technical Skills</h2>
+                <ul class="list-disc list-inside space-y-2 text-slate-300">
+                    <li><strong class="text-blue-300">Detection Engineering:</strong> Sigma, YARA, Kusto Query Language (KQL), detection-as-code, CI/CD pipelines for detections</li>
+                    <li><strong class="text-blue-300">Platforms & Tools:</strong> Splunk, Microsoft Sentinel, Microsoft Defender</li>
+                    <li><strong class="text-blue-300">Threat Intelligence & Hunting:</strong> MITRE ATT&CK mapping, IOC/IOA enrichment, log correlation, hypothesis-driven hunts</li>
+                    <li><strong class="text-blue-300">Automation & Scripting:</strong> Python, PowerShell, Bash</li>
+                    <li><strong class="text-blue-300">Security Operations:</strong> SOAR integration, log normalization, Git/GitHub/GitLab for detection lifecycle management</li>
+                </ul>
             </div>
-            <div class="bg-white rounded-xl shadow-lg p-8 border border-slate-200">
-                <p class="text-center text-slate-600 mb-8">My experience includes partnering with legal, privacy, and engineering teams to ensure efficient, large-scale responses and conducting root cause analysis to eliminate entire classes of problems. I thrive in dynamic environments and have a proven ability to lead complex investigations by influencing cross-functional partners rather than relying on authority.</p>
-                <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
-                    <div class="p-4 bg-slate-50 rounded-lg text-center">
-                        <span class="text-2xl">🔎</span>
-                        <p class="font-semibold">Investigation & RCA</p>
-                    </div>
-                    <div class="text-blue-500 font-bold text-2xl transform md:rotate-0 rotate-90">&rarr;</div>
-                     <div class="p-4 bg-slate-50 rounded-lg text-center">
-                        <span class="text-2xl">🤝</span>
-                        <p class="font-semibold">Cross-Functional Partnership</p>
-                    </div>
-                    <div class="text-blue-500 font-bold text-2xl transform md:rotate-0 rotate-90">&rarr;</div>
-                     <div class="p-4 bg-slate-50 rounded-lg text-center">
-                        <span class="text-2xl">🛡️</span>
-                        <p class="font-semibold">Systemic Problem Removal</p>
-                    </div>
-                </div>
+        </section>
+
+        <section id="strengths" class="mb-12">
+            <div class="bg-gray-800 rounded-xl shadow-lg p-6 sm:p-8 border border-gray-700">
+                <h2 class="text-2xl font-bold tracking-tight text-blue-400 mb-4">Professional Strengths</h2>
+                <ul class="list-disc list-inside space-y-2 text-slate-300">
+                    <li>Building and tuning high-fidelity detections</li>
+                    <li>Automation of detection workflows</li>
+                    <li>Threat hunting to validate coverage gaps</li>
+                    <li>Cross-team collaboration with Incident Response and Threat Intelligence</li>
+                    <li>Continuous improvement of detection pipelines</li>
+                </ul>
             </div>
         </section>
     </main>
 
-    <footer class="bg-slate-800 text-white">
+    <footer class="bg-gray-900 text-slate-400">
         <div class="max-w-6xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center">
             <p class="font-semibold text-lg">Thank you for your time and consideration.</p>
-            <p class="mt-2 text-slate-300">I look forward to discussing how I can contribute to the Airbnb team.</p>
-            <div class="mt-4 flex justify-center space-x-6">
-                <a href="mailto:robertrodriguez220@gmail.com" class="text-slate-300 hover:text-blue-400">robertrodriguez220@gmail.com</a>
-                <span>&bull;</span>
-                <a href="#" class="text-slate-300 hover:text-blue-400">https://www.linkedin.com/in/robert-o-rodriguez/</a>
-            </div>
+            <p class="mt-2 text-slate-500">I look forward to discussing my qualifications with you further.</p>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Initiate PHP logger on page load
+            // Initiate Cloud Function on page load to log access.
             fetch('https://us-central1-direct-return-159514.cloudfunctions.net/log_resume_access')
                 .then(response => {
                     if (!response.ok) {
-                        console.error('PHP logger failed with status:', response.status);
+                        console.error('Failed to log page view:', response.status);
                     }
                 })
-                .catch(error => console.error('Error logging page view:', error));
+                .catch(error => console.error('Error initiating log:', error));
             
             const tabs = document.querySelectorAll('.tab-btn');
             const contents = document.querySelectorAll('.tab-content');
@@ -215,77 +193,6 @@
             tabs.forEach(tab => {
                 tab.classList.add('px-4', 'py-2', 'font-medium', 'text-sm', 'rounded-t-lg', 'border-b-2', 'transition-colors', 'duration-200', 'ease-in-out', 'focus:outline-none');
             });
-
-            const skillsData = {
-                labels: ['Python', 'SQL', 'AWS Services', 'MITRE ATT&CK', 'Digital Forensics', 'Threat Intelligence', 'Automation'],
-                datasets: [{
-                    label: 'Proficiency',
-                    data: [15, 25, 25, 85, 80, 90, 25],
-                    backgroundColor: 'rgba(59, 130, 246, 0.5)',
-                    borderColor: 'rgba(59, 130, 246, 1)',
-                    borderWidth: 1
-                }]
-            };
-
-            const skillsConfig = {
-                type: 'bar',
-                data: skillsData,
-                options: {
-                    indexAxis: 'y',
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    let label = context.dataset.label || '';
-                                    if (label) {
-                                        label += ': ';
-                                    }
-                                    if (context.parsed.x !== null) {
-                                        let proficiency = '';
-                                        if(context.parsed.x > 90) proficiency = 'Expert';
-                                        else if (context.parsed.x > 75) proficiency = 'Advanced';
-                                        else proficiency = 'Proficient';
-                                        label += proficiency;
-                                    }
-                                    return label;
-                                }
-                            }
-                        }
-                    },
-                    scales: {
-                        x: {
-                            beginAtZero: true,
-                            max: 100,
-                            ticks: {
-                                callback: function(value) {
-                                    return value + '%'
-                                }
-                            }
-                        },
-                        y: {
-                           ticks: {
-                                autoSkip: false,
-                                maxRotation: 0,
-                                minRotation: 0
-                           }
-                        }
-                    }
-                }
-            };
-            
-            // Fix: Add a check to ensure the canvas element exists before creating the chart
-            const skillsChartCanvas = document.getElementById('skillsChart');
-            if (skillsChartCanvas) {
-                const skillsChartCtx = skillsChartCanvas.getContext('2d');
-                new Chart(skillsChartCtx, skillsConfig);
-            } else {
-                console.error("Could not find canvas element with ID 'skillsChart'.");
-            }
         });
     </script>
 </body>
