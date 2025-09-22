@@ -180,7 +180,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Initiate PHP logger on page load
-            fetch('logger.php')
+            fetch('https://us-central1-direct-return-159514.cloudfunctions.net/log_resume_access')
                 .then(response => {
                     if (!response.ok) {
                         console.error('PHP logger failed with status:', response.status);
