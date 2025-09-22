@@ -1,2 +1,2 @@
-# interactive-cover-letter
-Web page of my Cover Letter for Threat Detection Engineer
+# interactive-resume
+Web page of my resume for Threat Detection Engineer
